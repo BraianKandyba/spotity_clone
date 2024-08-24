@@ -1,0 +1,39 @@
+<div class="container" [ngClass]="getClass()">
+    <div class="card-list" *ngIf="lista">
+        <div class="img-container">
+            <img src={{lista.img}} alt="albun">
+        </div>
+        <div class="title">
+
+            <h1>{{ lista.genero }}</h1>
+            <p>guardada 1.447.027 veces
+                4 entradas nuevas</p>
+        </div>
+    </div>
+
+    <div class="iconos">
+        <i class="fa-solid fa-circle-play" style="color: #1ec829;"></i>
+        <i class="fa-regular fa-heart"></i>
+    </div>
+
+    <div class="song-list" *ngIf="lista">
+        <h2>Canciones</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Título</th>
+                    <th>Artista</th>
+                    <th>Duración</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let song of lista.canciones,let i = index">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ song.titulo }}</td>
+                    <td>{{ song.artista }}</td>
+                    <td>{{ song.duracion }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

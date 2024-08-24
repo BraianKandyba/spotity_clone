@@ -1,0 +1,110 @@
+<div class="container">
+
+    <h2 *ngIf="!selectedLista && !selectedAlbun && !selectedArtistas">Artistas populares</h2>
+
+    <div class="card-container" *ngIf="!selectedLista && !selectedAlbun && !selectedArtistas">
+        <div class="card" *ngFor="let artista of data" (click)="selectArtista(artista)">
+            <div class="img-container">
+                <img src={{artista.img}} alt="artista">
+                <i class="fa-solid fa-play play-icon"></i>
+            </div>
+            <h4>{{artista.nombre}}</h4>
+            <h5>{{artista.desc}}</h5>
+        </div>
+    </div>
+
+    <h2 *ngIf="!selectedLista && !selectedAlbun && !selectedArtistas">Listas Seleccionadas</h2>
+    <div class="container-list" *ngIf="!selectedLista && !selectedAlbun && !selectedArtistas">
+
+        <div class="card-list" *ngFor="let lista of dataLista" (click)="selectLista(lista)">
+
+            <div class="img-list">
+                <img src={{lista.img}} alt="albun">
+                <i class="fa-solid fa-play play-icon"></i>
+            </div>
+            <h2>{{ lista.genero }}</h2>
+        </div>
+    </div>
+
+    <h2 *ngIf="!selectedLista && !selectedAlbun && !selectedArtistas">Albunes Populares</h2>
+
+    <div class="container-list" *ngIf="!selectedLista && !selectedAlbun && !selectedArtistas">
+
+        <div class="card-list" *ngFor="let lista of dataAlbunes" (click)="selectAlbun(lista)">
+            <div class="img-list">
+                <img src={{lista.img}} alt="albun">
+                <i class="fa-solid fa-play play-icon"></i>
+            </div>
+            <h2>{{ lista.genero }}</h2>
+        </div>
+    </div>
+
+
+    <div class="albun-container" *ngIf="!selectedLista && selectedAlbun && !selectedArtistas">
+        <span (click)="closeSeleccion()"><i class="fa-solid fa-arrow-up"></i></span>
+        <app-albunes [lista]="selectedAlbun"></app-albunes>
+    </div>
+
+
+    <div class="lista-container" *ngIf="selectedLista && !selectedAlbun && !selectedArtistas">
+        <span (click)="closeSeleccion()"><i class="fa-solid fa-arrow-up"></i></span>
+        <app-listas [lista]="selectedLista"></app-listas>
+    </div>
+
+    <div class="albun-container" *ngIf="!selectedLista && !selectedAlbun && selectedArtistas">
+        <span (click)="closeSeleccion()"><i class="fa-solid fa-arrow-up"></i></span>
+        <app-artistas [art]="selectedArtistas"></app-artistas>
+    </div>
+
+    <div class="footer-grid">
+
+        <div class="grid-iten">
+            <p><b>Empresa</b></p>
+            <span>Acerca De</span>
+            <span>Empleo</span>
+            <span>For The Record</span>
+        </div>
+        <div class="grid-iten">
+            <p><b>Comunidades</b></p>
+            <span>Para Artistas</span>
+            <span>Desarrolladores</span>
+            <span>Publicidad</span>
+            <span>Inversores</span>
+            <span>Provedores</span>
+        </div>
+        <div class="grid-iten">
+            <p><b>Enlaces Utiteles</b></p>
+            <span>Asistencia</span>
+            <span>App Gratis Para Movil</span>
+        </div>
+        <div class="grid-iten">
+            <p><b>Planes Spotify</b></p>
+            <span>Premium Individual</span>
+            <span>Premium Duo</span>
+            <span>Premium Familiar</span>
+            <span>Premium para Estudiantes</span>
+            <span>Spotify Free</span>
+        </div>
+        <div class="grid-iten-redes">
+
+            <span>
+                <i class="fa-brands fa-instagram"></i>
+            </span>
+            <span>
+                <i class="fa-brands fa-twitter"></i>
+            </span>
+            <span>
+                <i class="fa-brands fa-facebook"></i>
+            </span>
+        </div>
+    </div>
+
+    <div class="copy">
+        <p>© 2024 Spotify AB</p>
+    </div>
+
+
+
+
+
+</div>
